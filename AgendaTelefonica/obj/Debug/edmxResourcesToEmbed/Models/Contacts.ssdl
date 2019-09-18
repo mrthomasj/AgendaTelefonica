@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ContactsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'dbo_agenda.dbo.MOCK_DATA' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="MOCK_DATA">
+          <Property Name="nmContato" Type="varchar" MaxLength="50" />
+          <Property Name="nr_telPrinc" Type="varchar" MaxLength="50" />
+          <Property Name="nr_telSec" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="notes" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+  <EntityType Name="tb_contatos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nmContato" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="nr_telPrinc" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="nr_telSec" Type="varchar" MaxLength="13" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="notes" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityContainer Name="ContactsModelStoreContainer">
+    <EntitySet Name="tb_contatos" EntityType="Self.tb_contatos" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
